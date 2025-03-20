@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %} Talento tech {% endblock %}
+{% block menu %}{%endblock%}
+
+
+{% block main %}
+{% include 'core/menu.html' %}
+<!-- {% load static %} -->
+<div id="carouselAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <!-- {% load static %} -->
+            <img src="{% static 'img/finanzas1.jpg' %}" class="d-block w-100" alt="imagenPrincipal1">
+            <div class="frase1">
+                <h1>"Todos somos vulnerables a las creencias
+                    <br>que nos resultan convenientes".
+                </h1>
+                <h4>Paul Krugman</h4>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/finanzas2.jpg' %}" class="d-block w-100" alt="imagenPrincipal2">
+            <div class="frase2">
+                <h1>"El dinero, como las emociones,
+                    <br>es algo que debes controlar para
+                    <br>mantener tu vida en el camino
+                    <br>correcto".
+                </h1>
+                <h4>Natasha Munson</h4>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/finanzas3.jpg' %}" class="d-block w-100" alt="imagenPrincipal3">
+            <div class="frase3">
+                <h1>"No es necesario hacer cosas
+                    <br>extraordinarias para conseguir
+                    <br> resultados extraordinarios".
+                </h1>
+                <h4>Warren Buffett</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'core/footer.html' %}
+{% endblock %}
+

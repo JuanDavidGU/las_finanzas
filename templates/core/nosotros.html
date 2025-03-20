@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+{% load static%}
+{% block titulo %}Equipo Desarrollador{% endblock %}
+{% block main %}
+{% include 'core/menu.html' %}
+<!-- Vamos a tener todo el código HTML -->
+<section class="container">
+  <div id="team" class="section scrollspy">
+    <h2 class="header">Equipo de trabajo</h2>
+    <p class="caption">Para crear este proyecto nos motivó </p>
+    <div class="center">
+      <div class="image-container">
+        <img src="{% static 'img/team.jpg' %}" style="width:100%;">
+      </div>
+    </div>
+    <br>
+    <section>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{% static 'img/yuli.jpeg' %}" class="rounded-circle col-md-12">
+        </div>
+        <div class="col align-self-center">
+          <h4>Yulieth Moreno Caballero</h4>
+          <p>Alan is an Information Systems major with a minor in computer science. He worked at as a Front End
+            Developer at Shift Collaborative this past summer.</p>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'img/laura.jpg' %}" class="rounded-circle col-md-12">
+          </div>
+          <div class="col align-self-center">
+            <h4>Laura Galeano</h4>
+            <p>Soy una Comunicadora Social apasionada por la creación de contenido audiovisual impactante y
+              significativo. Mi formación me ha permitido desarrollar una sólida comprensión de la comunicación
+              estratégica, la producción audiovisual y la narración de historias. Me caracterizo por mi paciencia,
+              escucha activa y capacidad para transformar ideas en productos audiovisuales de alta calidad.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'img/Paula.jpeg' %}" class="rounded-circle col-md-12">
+          </div>
+          <div class="col align-self-center">
+            <h4>Paula Martínez</h4>
+            <p>Alex is an Information Systems major with a minor in Human Computer Interaction. He worked as a software
+              developer for Intuit this past summer.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'img/dani.jpg' %}" class="rounded-circle col-md-12">
+          </div>
+
+          <div class="col align-self-center">
+            <h4>Karla..</h4>
+            <p>Soy un auxiliar de recursos humanos con una sólida base en nomina. Me caracterizo por ser una persona
+              confiable, con un alto sentido de la responsabilidad y una gran disposición para ayudar a los demás.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'img/juan.jpg' %}" class="rounded-circle col-md-12">
+          </div>
+          <div class="col align-self-center">
+            <h4>Juan David García</h4>
+            <p>Soy un analista de sistemas con una sólida formación en Tecnólogo en Análisis y desarrollo. Me
+              caracterizo por mi capacidad analítica, atención al detalle y mi compromiso con el trabajo en equipo.
+              Además, tengo un gran interés en ayudar a los demás, lo que me impulsa a buscar soluciones efectivas y a
+              brindar un apoyo constante a mis compañeros y usuarios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+</section>
+{% include 'core/footer.html' %}
+{% endblock %}
