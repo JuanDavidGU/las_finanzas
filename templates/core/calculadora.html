@@ -5,56 +5,73 @@
 {% block main %}
 {% include 'core/menu.html' %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsivo</title>
-    <link rel="shortcut icon" href="./public/media/img/Online Store.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-</head>
-<body>
-    
-    <main>
       <section class="container">
         <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
             <form id="formulario" method="post"  method="post" class="col-5">
-                <h1 class="display-5 text-center">Registro</h1>
+                <h1 class="display-5 text-center">Calculadora</h1>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="nombre" placeholder="">
-                    <label for="nombre">Nombres</label>
+                    <input type="number" class="form-control" name="Salario básico" placeholder="">
+                    <label for="Salario básico">Ingrese el valor de su salario básico</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="apellidos" placeholder="">
-                    <label for="apellidos">Apellidos</label>
+                    <input type="number" class="form-control" name="Días trabajados" placeholder="">
+                    <label for="Días trabajados">Ingrese el valor de los días trabajados</label>
                 </div>
                 <div class="form-floating mb-3">
-                        <input type="date" class="form-control" name="fechaNacimiento" placeholder="">
-                        <label for="fechaNacimiento">Fecha de nacimiento</label>
+                        <input type="number" class="form-control" name="Bono solidario" placeholder="">
+                        <label for="Bono solidario">Porcentaje bono solidario</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="">
-                    <label for="email">Correo</label>
+                    <input type="number" class="form-control" name="Salario días" placeholder="">
+                    <label for="Salario días">Salario días trabajados</label>
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" name="contraseña" placeholder="Password">
-                    <label for="contraseña">Contraseña</label>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="transporte" placeholder="">
+                    <label for="transporte">Cálculo del transporte</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="total devengado" placeholder="">
+                    <label for="total devengado">Cálculo total devengado</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo salud" placeholder="">
+                    <label for="Cálculo salud">Cálculo de salud</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo pensión" placeholder="">
+                    <label for="Cálculo pensión">Cálculo de la pensión</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo bono solidario" placeholder="">
+                    <label for="Cálculo bono solidario">Cálculo del descuento de bono solidario</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo base grabada" placeholder="">
+                    <label for="Cálculo base grabada">Cálculo de base grabada</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo renta exenta" placeholder="">
+                    <label for="Cálculo renta exenta">Cálculo de renta exenta</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo base retefuente" placeholder="">
+                    <label for="Cálculo base retefuente">Cálculo de base retefuente</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo base retefuente UVT" placeholder="">
+                    <label for="Cálculo base retefuente UVT">Cálculo de base retefuente UVT</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="Cálculo de porcentaje retefuente" placeholder="">
+                    <label for="Cálculo de porcentaje retefuente">Cálculo de porcentaje retefuente</label>
                 </div>
                   <button type="submit" class="btn btn-dark col-12 mt-3">Enviar</button>
                   <button type="reset" class="btn btn-dark col-12 mt-3">Cancelar</button>
             </form>
         </div>
       </section>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./public/js/scriptrsregistro.js"></script>
-</body>
-</html>
-</body>
-</html>
+   
 
 
 {% include 'core/footer.html' %}

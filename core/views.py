@@ -52,4 +52,23 @@ class NosotrosPageView(TemplateView):
         return render(request, self.template_name, self.dict_context)
     
 
+class CalculadoraPageView(TemplateView):
+    template_name = 'core/calculadora.html'
+
+    # dict_context = {
     
+    # }
+
+    def get(self, request, *args, **kwars):
+        return render(request, self.template_name)
+    
+
+class AprendePageView(TemplateView):
+    template_name = 'core/aprende.html'
+
+    # dict_context = {
+    
+    # }
+
+    def get(self, request, *args, **kwars):
+        return render(request, self.template_name)
