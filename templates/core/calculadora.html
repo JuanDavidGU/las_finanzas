@@ -6,72 +6,82 @@
 {% include 'core/menu.html' %}
 
 
-      <section class="container">
-        <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
-            <form id="formulario" method="post"  method="post" class="col-5">
-                <h1 class="display-5 text-center">Calculadora</h1>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Salario básico" placeholder="">
-                    <label for="Salario básico">Ingrese el valor de su salario básico</label>
+<section class="container mt-5">
+    <div class="row justify-content-center md-4">
+        <form id="formulario" method="post" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded m-4">
+            {% csrf_token %}
+            <h1 class="display-5 text-center mt-5"><b>Calculadora</b></h1>
+            <div class="row justify-content-center">
+                <div class="form-floating mb-4 col-md-4">
+                    {{ formulario.salario }}
+                    <label for="salario básico">Ingrese el valor de su salario básico</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Días trabajados" placeholder="">
+                <div class="form-floating mb-4 col-md-4">
+                    {{ formulario.dias}}
                     <label for="Días trabajados">Ingrese el valor de los días trabajados</label>
                 </div>
-                <div class="form-floating mb-3">
-                        <input type="number" class="form-control" name="Bono solidario" placeholder="">
-                        <label for="Bono solidario">Porcentaje bono solidario</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Salario días" placeholder="">
-                    <label for="Salario días">Salario días trabajados</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="transporte" placeholder="">
-                    <label for="transporte">Cálculo del transporte</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="total devengado" placeholder="">
-                    <label for="total devengado">Cálculo total devengado</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo salud" placeholder="">
-                    <label for="Cálculo salud">Cálculo de salud</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo pensión" placeholder="">
-                    <label for="Cálculo pensión">Cálculo de la pensión</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo bono solidario" placeholder="">
-                    <label for="Cálculo bono solidario">Cálculo del descuento de bono solidario</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo base grabada" placeholder="">
-                    <label for="Cálculo base grabada">Cálculo de base grabada</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo renta exenta" placeholder="">
-                    <label for="Cálculo renta exenta">Cálculo de renta exenta</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo base retefuente" placeholder="">
-                    <label for="Cálculo base retefuente">Cálculo de base retefuente</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo base retefuente UVT" placeholder="">
-                    <label for="Cálculo base retefuente UVT">Cálculo de base retefuente UVT</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="Cálculo de porcentaje retefuente" placeholder="">
-                    <label for="Cálculo de porcentaje retefuente">Cálculo de porcentaje retefuente</label>
-                </div>
-                  <button type="submit" class="btn btn-dark col-12 mt-3">Enviar</button>
-                  <button type="reset" class="btn btn-dark col-12 mt-3">Cancelar</button>
-            </form>
+            </div>
+            
+            <!-- <div class="form-floating mb-3 col-md-4">
+                {{formulario.solidario}}
+                <label for="Bono solidario">Porcentaje bono solidario</label>
+            </div> -->
+            <!-- <div class="form-floating mb-3 col-md-4">
+                {{ formulario.salario_dias}}
+                <label for="salario días">salario días trabajados</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.transporte}}
+                <label for="transporte">Cálculo del transporte</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.total_devengado}}
+                <label for="total devengado">Cálculo total devengado</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.salud}}
+                <label for="Cálculo salud">Cálculo de salud</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.pension}}
+                <label for="Cálculo pensión">Cálculo de la pensión</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.bono_solidario}}
+                <label for="Cálculo bono solidario">Cálculo del descuento de bono solidario</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.base_gravada}}
+                <label for="Cálculo base grabada">Cálculo de base grabada</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.renta_excenta}}
+                <label for="Cálculo renta exenta">Cálculo de renta exenta</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.base_retefuente}}
+                <label for="Cálculo base retefuente">Cálculo de base retefuente</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.base_retefuenteuvt}}
+                <label for="Cálculo base retefuente UVT">Cálculo de base retefuente UVT</label>
+            </div>
+            <div class="form-floating mb-3 col-md-4">
+                {{ formulario.porcentaje_retefuente}}
+                <label for="Cálculo de porcentaje retefuente">Cálculo de porcentaje retefuente</label>
+            </div> -->
+            <div class="row justify-content-center mb-5">
+                <button type="submit" class="btn btn-dark col-md-4 mx-3">Calcular</button>
+                <button type="reset" class="btn btn-dark col-md-4 mx-3">Cancelar</button>
+            </div>
+        </form>
+    
+        <div class="resultados bg-sucess mt-5 mb-5">
+            {{ resultado }}
         </div>
-      </section>
-   
+    </div>
+</section>
+
 
 
 {% include 'core/footer.html' %}
