@@ -1,25 +1,22 @@
-
 <!-- {% load static %} -->
-<header class="navbar navbar bg-warning">
-        
+<header class="navbar bg-warning bd-navbar-toggle">
     <div class="d-flex w-100 align-items-center">
         <div class="logo">
             <img src="{% static 'img/logo.png'%}">
         </div>
-        <nav class="ms-auto">
-            <ul>
-                <li class="nav-item"><a class="nav-link active" style="color: black;" href="{% url 'inicio' %}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link active" style="color: black;" href="{% url 'finanzas' %}">Finanzas </a></li>
-                <li class="nav-item"><a class="nav-link active" style="color: black;" href="{% url 'aprende' %}">Aprende</a></li>
-                <li class="nav-item"><a class="nav-link active" style="color: black;" href="{% url 'calculadora' %}">Calculadora</a></li>
-                <li class="nav-item"><a class="nav-link active" style="color: black;" href="{% url 'nosotros' %}"><b>Nosotros</b></a></li>    
+        <nav class="ms-auto ">
+            <ul class="bd-navbar-toggle">
+                <li class="nav-item"><a class="nav-link active" style="color: black;"
+                        href="{% url 'inicio' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" style="color: black;"
+                        href="{% url 'finanzas' %}">Finanzas </a></li>
+                <li class="nav-item"><a class="nav-link active" style="color: black;"
+                        href="{% url 'aprende' %}">Aprende</a></li>
+                <li class="nav-item"><a class="nav-link active" style="color: black;"
+                        href="{% url 'calculadora' %}">Calculadora</a></li>
+                <li class="nav-item"><a class="nav-link active" style="color: black;"
+                        href="{% url 'nosotros' %}"><b>Nosotros</b></a></li>
             </ul>
-            
+
         </nav>
 </header>
-
-
-
-
-
-
