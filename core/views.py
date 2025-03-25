@@ -1,4 +1,7 @@
 from django.shortcuts import render
+import matplotlib.pyplot as plt
+from io import BytesIO
+from .models import SalarioMinimos
 
 from django.views.generic import TemplateView
 from .forms import Calculadora
@@ -31,12 +34,29 @@ class FinanzasPageView(TemplateView):
     """ Clase para mostrar la página finanzas """
     template_name = 'core/finanzas.html'
 
-    dict_context = {
-        "titulo": 'Titulo del Articulo'
-    }
-
     def get(self, request, *args, **kwars):
-        return render(request, self.template_name, self.dict_context)
+        """ Grsficcamos """
+        datos = SalarioMinimos.objects.all()            # Traigo toda la tabla
+        anios = [dato.anio for dato in datos]
+        varianza = [dato.variacion for dato in datos]
+
+        plt.figure(figsize=(10,0))
+        plt.plot(anios, varianza, marker = 'o', label = 'Variación %')
+        plt.xlabel('Años')
+        plt.ylabel('Varianza')
+        plt.title('Varianza por año del Salario Minimo')
+        plt.legend()
+        plt.grid()
+
+        buffer = BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+        plt.close()
+
+        return render(request, self.template_name, dict_context = {
+                                                                    "titulo": 'Titulo del Articulo',
+                                                                    'grafico': buffer
+                                                                  })
 
 
 class NosotrosPageView(TemplateView):
