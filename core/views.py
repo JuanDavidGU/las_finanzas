@@ -1,9 +1,10 @@
 from django.shortcuts import render
 import matplotlib.pyplot as plt
-from io import BytesIO
+import os
+from django.conf import settings
 from .models import SalarioMinimos
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from .forms import Calculadora
 
 # Create your views here.
@@ -30,17 +31,18 @@ class HomepageView(TemplateView):
         return render(request, self.template_name, self.navbar)
     
 
-class FinanzasPageView(TemplateView):
+class FinanzasPageView(TemplateView, ListView):
     """ Clase para mostrar la página finanzas """
     template_name = 'core/finanzas.html'
+    model = SalarioMinimos
 
     def get(self, request, *args, **kwars):
-        """ Grsficcamos """
+        """ Graficcamos """
         datos = SalarioMinimos.objects.all()            # Traigo toda la tabla
         anios = [dato.anio for dato in datos]
         varianza = [dato.variacion for dato in datos]
 
-        plt.figure(figsize=(10,0))
+        plt.figure(figsize=(10,5))
         plt.plot(anios, varianza, marker = 'o', label = 'Variación %')
         plt.xlabel('Años')
         plt.ylabel('Varianza')
@@ -48,15 +50,19 @@ class FinanzasPageView(TemplateView):
         plt.legend()
         plt.grid()
 
-        buffer = BytesIO()
-        plt.savefig(buffer, format='png')
-        buffer.seek(0)
+        # Ruta de la carpeta static donde se guardará la imagen
+        static_dir = os.path.join(settings.STATICFILES_DIRS[0], 'img')
+        os.makedirs(static_dir, exist_ok=True)  # Asegúrate de que la carpeta exista
+
+        # Guarda el gráfico en la carpeta static
+        image_path = os.path.join(static_dir, 'grafico_salario_minimo.png')
+        plt.savefig(image_path)
         plt.close()
 
-        return render(request, self.template_name, dict_context = {
-                                                                    "titulo": 'Titulo del Articulo',
-                                                                    'grafico': buffer
-                                                                  })
+        return render(request, self.template_name, {
+                                                    "titulo": 'Titulo del Articulo',
+                                                    'grafico': f'img/grafico_salario_minimo.png'
+                                                    })
 
 
 class NosotrosPageView(TemplateView):
@@ -81,6 +87,11 @@ class CalculadoraPageView(TemplateView):
         return render(request, self.template_name, {
             'formulario': self.formulario
         })
+    
+    def mi_vista_humanize(request):
+        context = { 
+            'netoapagar'
+        }
     
     def post(self, request, *args, **kwargs):
 
@@ -133,7 +144,7 @@ class CalculadoraPageView(TemplateView):
             # Renderiza la plantilla con el resultado
             return render(request, self.template_name, {
                 'formulario': formulario,
-                'resultado': netoapagar
+                'resultado': (f'Su salario mensual es: ${int(netoapagar)},')
             })
 
         # Si el formulario no es válido, renderiza nuevamente con los errores

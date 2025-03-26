@@ -5,6 +5,8 @@
 {% block main %}
 {% include 'core/menu.html' %}
 
+{% load humanize %}
+
 
 <section class="container mt-5">
     <div class="row justify-content-center md-4">
@@ -71,18 +73,18 @@
                 <label for="Cálculo de porcentaje retefuente">Cálculo de porcentaje retefuente</label>
             </div> -->
             <div class="row justify-content-center mb-5">
+                <button type="reset" class="btn btn-outline-dark col-md-4 mx-3">Cancelar</button>
                 <button type="submit" class="btn btn-dark col-md-4 mx-3">Calcular</button>
-                <button type="reset" class="btn btn-dark col-md-4 mx-3">Cancelar</button>
             </div>
         </form>
     
         <div class="resultados bg-sucess mt-5 mb-5">
-            {{ resultado }}
+            {{ resultado|intcomma }}
         </div>
     </div>
 </section>
 
-
+{% load %}
 
 {% include 'core/footer.html' %}
 {% endblock %}
