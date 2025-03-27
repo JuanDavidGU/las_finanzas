@@ -107,11 +107,22 @@ class CalculadoraPageView(TemplateView):
             dias = int(dias)
 
             # Variables y operaciones
-            solidario = 0
+            
             mes = 30
             salario_dias = salario / mes * dias
-            transporte = 0
-            total_devengado = salario_dias + transporte
+            
+            if salario <= 2850000 :
+                transporte = 200000
+                total_devengado = salario_dias + transporte
+            if salario >= 5700000:
+                transporte = 0
+                solidario = 0.01
+                total_devengado = salario_dias
+            else:
+                transporte = 0
+                total_devengado = salario_dias
+                solidario = 0
+
             salud = salario_dias * 0.04
             pension = salario_dias * 0.04
             bono_solidario = solidario * total_devengado
@@ -125,17 +136,27 @@ class CalculadoraPageView(TemplateView):
             base_retefuente = base_gravada - renta_excenta
             base_retefuenteuvt = base_retefuente / 49799
 
+            
+           
             if 0 < base_retefuenteuvt <= 95:
-                retefuenteuvt = 0
-            elif 95 < base_retefuenteuvt <= 150:
+                 retefuenteuvt = 0
+            if 95 < base_retefuenteuvt <= 150:
                 retefuenteuvt = (base_retefuenteuvt - 95) * 0.19
             elif 150 < base_retefuenteuvt <= 360:
                 retefuenteuvt = (base_retefuenteuvt - 150) * 0.28 + 10
             else:
                 retefuenteuvt = (base_retefuenteuvt - 360) * 0.33 + 69
-
-            retefuentepesos = round(retefuenteuvt * 49799 / 1000) * 1000
+                
+            if salario >= 4730905 :
+                retefuentepesos = round(retefuenteuvt * 49799 / 1000) * 1000
+            else:
+                retefuentepesos = 0
+                
+            
             netoapagar = base_gravada - retefuentepesos
+           
+           
+        
 
             
 
@@ -144,7 +165,14 @@ class CalculadoraPageView(TemplateView):
             # Renderiza la plantilla con el resultado
             return render(request, self.template_name, {
                 'formulario': formulario,
-                'resultado': (f'Su salario mensual es: ${int(netoapagar)},')
+                'resultado': netoapagar,
+                'transporte': transporte,
+                'solidario': bono_solidario,
+                'retefuente':retefuentepesos,
+                'salud': salud,
+                'pension': pension,
+                'baseGravada': base_gravada,
+                
             })
 
         # Si el formulario no es válido, renderiza nuevamente con los errores

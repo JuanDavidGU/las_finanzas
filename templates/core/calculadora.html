@@ -23,7 +23,7 @@
                     <label for="Días trabajados">Ingrese el valor de los días trabajados</label>
                 </div>
             </div>
-            
+
             <!-- <div class="form-floating mb-3 col-md-4">
                 {{formulario.solidario}}
                 <label for="Bono solidario">Porcentaje bono solidario</label>
@@ -77,9 +77,39 @@
                 <button type="submit" class="btn btn-dark col-md-4 mx-3">Calcular</button>
             </div>
         </form>
-    
+
         <div class="resultados bg-sucess mt-5 mb-5">
-            {{ resultado|intcomma }}
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p> Total a devengar: ${{ resultado | intcomma }}</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Auxilio de transporte: </p>
+                    <!-- {% if transporte != 0 %} -->
+                    <p>${{ transporte |intcomma }}</p>
+                    <!-- {% endif %} -->
+                </div>
+                <div class="col-md-4">
+                    <p>Total bono solidario: ${{ solidario|intcomma }}</p>
+                </div>
+                <div class="col-md-4">
+                    <p> Retefuente: ${{ retefuente|intcomma }}</p>
+                </div>
+                <div class="col-md-4">
+                    <p> Total salud: ${{ salud|intcomma}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p> Total pension: ${{ pension|intcomma }}</p>
+                </div>
+                <div class="col-md-4">
+                    <p> total base gravada: ${{ baseGravada|intcomma}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
