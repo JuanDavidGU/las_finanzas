@@ -5,23 +5,134 @@
 {% block main %}
 {% include 'core/menu.html' %}
 
-<div class="row">
-    <div class="col">
+
+<section class="container">
+    <h1 class="row justify-content-center mt-4 mb-4">Aprende jugando</h1>
+    <div class="row">
+            <div class="col-md-8">
+                <iframe src="https://scratch.mit.edu/projects/1147534003/embed" allowtransparency="true" width="785"
+                     height="702" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div class="col-md-4">
+                <div class="container">
+                    <div class="jumbotron">
+                        <h2>¡Bienvenido al Juego!</h2>
+                        <p class="lead">Sigue estas instrucciones para jugar:</p>
+                        <hr class="my-4">
+                        <ol>
+                            <li>
+                                <strong>Inicio del juego:</strong><br>
+                                Presiona el botón "Iniciar" para comenzar.
+                            </li>
+                            <li>
+                                <strong>Comenzar a jugar:</strong><br>
+                                Una vez que el juego se cargue, presiona la barra espaciadora para empezar a correr.
+                            </li>
+                            <li>
+                                <strong>Movimiento y obstáculos:</strong><br>
+                                Utiliza la flecha de arriba para saltar y evitar los obstáculos que aparezcan en tu camino.
+                            </li>
+                            <li>
+                                <strong>Puntuación:</strong><br>
+                                <ul>
+                                    <li>Cada vez que saltes sobre un edificio, ganarás dinero.</li>
+                                    <li>Si chocas con otros obstáculos, perderás dinero.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Fin del juego:</strong><br>
+                                Si tu marcador de dinero llega a ser menor que 0, perderás el juego.
+                            </li>
+                        </ol>
+                        <p class="mt-4">¡Diviértete!</p>
+                    </div>
+                </div>
+            </div>
     </div>
-    <div class="col">
-        <iframe src="https://scratch.mit.edu/projects/1147534003/embed" allowtransparency="true" width="885"
-            height="802" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</section>
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class="text-center mb-4">¿Qué aprendimos?</h1>
+            <p class="lead text-center">A menudo, nuestro dinero se esfuma sin que nos demos cuenta, víctima de pequeños gastos que, aunque insignificantes por sí solos, se acumulan y afectan nuestras finanzas. Aquí algunos conceptos clave para tomar el control:</p>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="bi bi-piggy-bank me-2"></i> El sigiloso "gasto hormiga"
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Esos cafés diarios, snacks, suscripciones olvidadas... parecen inofensivos, pero ¡cuidado! Sumados, pueden representar un agujero importante en tu bolsillo.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="bi bi-calculator me-2"></i> La magia del presupuesto
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Saber a dónde va cada peso es el primer paso. Un presupuesto te permite visualizar tus ingresos y gastos, identificar fugas y priorizar lo esencial.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="bi bi-cash-coin me-2"></i> El poder del ahorro
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            No importa la cantidad, ahorrar es construir un futuro más tranquilo. Un pequeño porcentaje de tus ingresos puede convertirse en un gran colchón para emergencias o metas a largo plazo.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="bi bi-cart me-2"></i> Compras conscientes
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Antes de comprar, pregúntate: ¿realmente lo necesito? Evita las compras impulsivas y compara precios. ¡Tu bolsillo te lo agradecerá!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="bi bi-list-check me-2"></i> Suscripciones bajo la lupa
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Revisa tus suscripciones periódicamente. ¿Utilizas todos esos servicios de streaming o aplicaciones? Cancelar lo innecesario libera dinero valioso.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <i class="bi bi-graph-up me-2"></i> Pequeños cambios, grandes resultados
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Cambiar algunos hábitos, como preparar café en casa o llevar tu propia comida, puede generar ahorros significativos a largo plazo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <h1>¿Qué es Finanzas?</h1>
-        <p>Finanzas es una plataforma educativa que busca enseñar a los niños y jóvenes a manejar su dinero de manera
-            responsable. A través de juegos y actividades, los usuarios podrán aprender sobre conceptos financieros
-            básicos, como el ahorro, la inversión y el presupuesto.</p>
-    </div>
+</section>
 
     {% include 'core/footer.html' %}
     {% endblock %}
