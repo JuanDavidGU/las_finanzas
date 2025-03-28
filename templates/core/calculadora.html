@@ -81,11 +81,21 @@
                         <p>${{ salud|intcomma}}</p>
                         <p>${{ pension|intcomma }}</p>
                         <p>${{ baseGravada|intcomma}}</p>
+                        {% if extra_diurna != 0 %}
                         <p>${{ extra_diurna | intcomma }}</p>
+                        {% endif %}
+                        {% if extra_nocturna != 0 %}
                         <p>${{ extra_nocturna | intcomma }}</p>
+                        {% endif %}
+                        {% if extra_dominical_festiva_diurna != 0 %}
                         <p>${{ extra_dominical_festiva_diurna | intcomma }}</p>
+                        {% endif %}
+                        {% if extra_dominical_festiva_nocturna != 0 %}
                         <p>${{ extra_dominical_festiva_nocturna | intcomma }}</p>
+                        {% endif %}
+                        {% if total_extras != 0 %}
                         <p>${{ total_extras | intcomma }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
