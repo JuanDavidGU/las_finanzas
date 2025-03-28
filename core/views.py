@@ -168,7 +168,7 @@ class CalculadoraPageView(TemplateView):
                 'diurna': 1.25,
                 'nocturna': 1.75,
                 'dominical_festiva_diurna': 2,
-                'dominical_festiva_nocturna': 2.5
+                'dominical_festiva_nocturna': 2.5,
             }
 
             total_extras = sum(horas_extras[tipo] * valor_hora * factores_extra[tipo] for tipo in horas_extras)
@@ -182,13 +182,13 @@ class CalculadoraPageView(TemplateView):
             # Renderiza la plantilla con el resultado
             return render(request, self.template_name, {
                 'formulario': formulario,
-                'resultado': netoapagar,
-                'transporte': transporte,
-                'solidario': bono_solidario,
-                'retefuente':retefuentepesos,
-                'salud': salud,
-                'pension': pension,
-                'baseGravada': base_gravada,
+                'resultado': round(netoapagar),
+                'transporte': round(transporte),
+                'solidario': round(bono_solidario),
+                'retefuente':round(retefuentepesos),
+                'salud': round(salud),
+                'pension': round(pension),
+                'baseGravada': round(base_gravada),
                 'total_extras': round(total_extras) if total_extras > 0 else None,  
                 **{f'extra_{tipo}': round(horas_extras[tipo] * valor_hora * factores_extra[tipo]) for tipo in horas_extras},
                 
