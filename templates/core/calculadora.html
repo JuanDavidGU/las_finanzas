@@ -22,95 +22,74 @@
                     {{ formulario.dias}}
                     <label for="Días trabajados">Ingrese el valor de los días trabajados</label>
                 </div>
+                <h3 class="text-center mt-4">Horas Extras</h3>
+                <div class="row justify-content-center">
+                    <div class="form-floating mb-4 col-md-4">
+                        {{ formulario.hora_extra_diurna }}
+                        <label for="hora_extra_diurna">Horas extras diurnas</label>
+                    </div>
+                    <div class="form-floating mb-4 col-md-4">
+                        {{ formulario.hora_extra_nocturna }}
+                        <label for="hora_extra_nocturna">Horas extras nocturnas</label>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="form-floating mb-4 col-md-4">
+                        {{ formulario.hora_extra_dominical_festiva_diurna }}
+                        <label for="hora_extra_dominical_festiva_diurna">Horas extras dominicales/festivas diurnas</label>
+                    </div>
+                    <div class="form-floating mb-4 col-md-4">
+                        {{ formulario.hora_extra_dominical_festiva_nocturna }}
+                        <label for="hora_extra_dominical_festiva_nocturna">Horas extras dominicales/festivas nocturnas</label>
+                    </div>
+                </div>
             </div>
-
-            <!-- <div class="form-floating mb-3 col-md-4">
-                {{formulario.solidario}}
-                <label for="Bono solidario">Porcentaje bono solidario</label>
-            </div> -->
-            <!-- <div class="form-floating mb-3 col-md-4">
-                {{ formulario.salario_dias}}
-                <label for="salario días">salario días trabajados</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.transporte}}
-                <label for="transporte">Cálculo del transporte</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.total_devengado}}
-                <label for="total devengado">Cálculo total devengado</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.salud}}
-                <label for="Cálculo salud">Cálculo de salud</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.pension}}
-                <label for="Cálculo pensión">Cálculo de la pensión</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.bono_solidario}}
-                <label for="Cálculo bono solidario">Cálculo del descuento de bono solidario</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.base_gravada}}
-                <label for="Cálculo base grabada">Cálculo de base grabada</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.renta_excenta}}
-                <label for="Cálculo renta exenta">Cálculo de renta exenta</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.base_retefuente}}
-                <label for="Cálculo base retefuente">Cálculo de base retefuente</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.base_retefuenteuvt}}
-                <label for="Cálculo base retefuente UVT">Cálculo de base retefuente UVT</label>
-            </div>
-            <div class="form-floating mb-3 col-md-4">
-                {{ formulario.porcentaje_retefuente}}
-                <label for="Cálculo de porcentaje retefuente">Cálculo de porcentaje retefuente</label>
-            </div> -->
             <div class="row justify-content-center mb-5">
                 <button type="reset" class="btn btn-outline-dark col-md-4 mx-3">Cancelar</button>
                 <button type="submit" class="btn btn-dark col-md-4 mx-3">Calcular</button>
             </div>
         </form>
-
-        <div class="resultados bg-sucess mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <p> Total a devengar: ${{ resultado | intcomma }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p>Auxilio de transporte: </p>
-                    <!-- {% if transporte != 0 %} -->
-                    <p>${{ transporte |intcomma }}</p>
-                    <!-- {% endif %} -->
-                </div>
-                <div class="col-md-4">
-                    <p>Total bono solidario: ${{ solidario|intcomma }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p> Retefuente: ${{ retefuente|intcomma }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p> Total salud: ${{ salud|intcomma}}</p>
-                </div>
-                <div class="col-md-4">
-                    <p> Total pension: ${{ pension|intcomma }}</p>
-                </div>
-                <div class="col-md-4">
-                    <p> total base gravada: ${{ baseGravada|intcomma}}</p>
+        {% if resultado != null %}
+            <div class="resultados bg-light p-3 rounded mt-5 mb-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="fw-bold text-dark">
+                            De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-dark">
+                        <p>Total a devengar:</p>
+                        <p>Auxilio de transporte:</p>
+                        <p>Total bono solidario:</p>
+                        <p>Retefuente:</p>
+                        <p>Total salud:</p>
+                        <p>Total pension:</p>
+                        <p>Total base gravada:</p>
+                        <p>Hora extra diurna:</p>
+                        <p>Hora extra nocturna:</p>
+                        <p>Hora extra dominical/festiva diurna:</p>
+                        <p>Hora extra dominical/festiva nocturna:</p>
+                        <p>Total horas extras:</p>
+                    </div>
+                    <div class="col-md-8 fw-bold text-warning-emphasis">
+                        <p>${{ resultado | intcomma }}</p>
+                        {% if transporte != 0 %}
+                        <p>${{ transporte |intcomma }}</p>
+                        {% endif %}
+                        <p>${{ solidario|intcomma }}</p>
+                        <p>${{ retefuente|intcomma }}</p>
+                        <p>${{ salud|intcomma}}</p>
+                        <p>${{ pension|intcomma }}</p>
+                        <p>${{ baseGravada|intcomma}}</p>
+                        <p>${{ extra_diurna | intcomma }}</p>
+                        <p>${{ extra_nocturna | intcomma }}</p>
+                        <p>${{ extra_dominical_festiva_diurna | intcomma }}</p>
+                        <p>${{ extra_dominical_festiva_nocturna | intcomma }}</p>
+                        <p>${{ total_extras | intcomma }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 </section>
 

@@ -105,6 +105,7 @@ class CalculadoraPageView(TemplateView):
             # Convertir a entero
             salario = int(salario)
             dias = int(dias)
+            solidario = 0
 
             # Variables y operaciones
             
@@ -114,14 +115,14 @@ class CalculadoraPageView(TemplateView):
             if salario <= 2850000 :
                 transporte = 200000
                 total_devengado = salario_dias + transporte
-            if salario >= 5700000:
+            elif salario >= 5700000:
                 transporte = 0
                 solidario = 0.01
                 total_devengado = salario_dias
             else:
                 transporte = 0
                 total_devengado = salario_dias
-                solidario = 0
+                
 
             salud = salario_dias * 0.04
             pension = salario_dias * 0.04
@@ -153,10 +154,26 @@ class CalculadoraPageView(TemplateView):
                 retefuentepesos = 0
                 
             
-            netoapagar = base_gravada - retefuentepesos
-           
-           
-        
+            horas_extras = {
+                'diurna': int(formulario.cleaned_data.get('hora_extra_diurna') or 0),
+                'nocturna': int(formulario.cleaned_data.get('hora_extra_nocturna') or 0),
+                'dominical_festiva_diurna': int(formulario.cleaned_data.get('hora_extra_dominical_festiva_diurna') or 0),
+                'dominical_festiva_nocturna': int(formulario.cleaned_data.get('hora_extra_dominical_festiva_nocturna') or 0)
+            }
+
+
+            valor_hora = salario / 240
+
+            factores_extra = {
+                'diurna': 1.25,
+                'nocturna': 1.75,
+                'dominical_festiva_diurna': 2,
+                'dominical_festiva_nocturna': 2.5
+            }
+
+            total_extras = sum(horas_extras[tipo] * valor_hora * factores_extra[tipo] for tipo in horas_extras)
+
+            netoapagar = base_gravada - retefuentepesos + total_extras  
 
             
 
@@ -172,6 +189,8 @@ class CalculadoraPageView(TemplateView):
                 'salud': salud,
                 'pension': pension,
                 'baseGravada': base_gravada,
+                'total_extras': round(total_extras) if total_extras > 0 else None,  
+                **{f'extra_{tipo}': round(horas_extras[tipo] * valor_hora * factores_extra[tipo]) for tipo in horas_extras},
                 
             })
 
