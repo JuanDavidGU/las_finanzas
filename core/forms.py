@@ -1,7 +1,7 @@
 from django import forms
 
 class Calculadora(forms.Form):
-    salario = forms.CharField(label="Salario", required=True, widget = forms.TextInput(attrs={'class':'form-control', 'placeholder':'Salario'}))
+    salario = forms.CharField(label="Salario", required=True, widget = forms.TextInput(attrs={'type':'text','class':'form-control', 'placeholder':'Salario' }))
     dias = forms.CharField(label="", required=True, widget = forms.TextInput(attrs={'class':'form-control','placeholder':'Dias'}))
     hora_extra_diurna = forms.CharField(label="Hora Extra Diurna", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hora Extra Diurna'}))
     hora_extra_nocturna = forms.CharField(label="Hora Extra Nocturna", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hora Extra Nocturna'}))

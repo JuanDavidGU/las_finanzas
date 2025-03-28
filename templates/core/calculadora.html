@@ -15,12 +15,12 @@
             <h1 class="display-5 text-center mt-5"><b>Calculadora</b></h1>
             <div class="row justify-content-center">
                 <div class="form-floating mb-4 col-md-4">
-                    {{ formulario.salario }}
+                    {{ formulario.salario}}
                     <label for="salario básico">Ingrese el valor de su salario básico</label>
                 </div>
                 <div class="form-floating mb-4 col-md-4">
                     {{ formulario.dias}}
-                    <label for="Días trabajados">Ingrese el valor de los días trabajados</label>
+                    <label for="Días trabajados ">Ingrese el valor de los días trabajados</label>
                 </div>
                 <h3 class="text-center mt-4">Horas extras</h3>
                 <div class="row justify-content-center">
@@ -36,11 +36,13 @@
                 <div class="row justify-content-center">
                     <div class="form-floating mb-4 col-md-4">
                         {{ formulario.hora_extra_dominical_festiva_diurna }}
-                        <label for="hora_extra_dominical_festiva_diurna">Horas extras dominicales/festivas diurnas</label>
+                        <label for="hora_extra_dominical_festiva_diurna">Horas extras dominicales/festivas
+                            diurnas</label>
                     </div>
                     <div class="form-floating mb-4 col-md-4">
                         {{ formulario.hora_extra_dominical_festiva_nocturna }}
-                        <label for="hora_extra_dominical_festiva_nocturna">Horas extras dominicales/festivas nocturnas</label>
+                        <label for="hora_extra_dominical_festiva_nocturna">Horas extras dominicales/festivas
+                            nocturnas</label>
                     </div>
                 </div>
             </div>
@@ -50,55 +52,55 @@
             </div>
         </form>
         {% if resultado != null %}
-            <div class="resultados bg-light p-3 rounded mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="fw-bold text-dark">
-                            De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
-                        </p>
-                    </div>
-                    <div class="col-md-4 text-dark">
-                        <p>Total a devengar:</p>
-                        <p>Auxilio de transporte:</p>
-                        <p>Total bono solidario:</p>
-                        <p>Retefuente:</p>
-                        <p>Total salud:</p>
-                        <p>Total pension:</p>
-                        <p>Total base gravada:</p>
-                        <p>Hora extra diurna:</p>
-                        <p>Hora extra nocturna:</p>
-                        <p>Hora extra dominical/festiva diurna:</p>
-                        <p>Hora extra dominical/festiva nocturna:</p>
-                        <p>Total horas extras:</p>
-                    </div>
-                    <div class="col-md-8 fw-bold text-warning-emphasis">
-                        <p>${{ resultado | intcomma }}</p>
-                        {% if transporte != 0 %}
-                        <p>${{ transporte |intcomma }}</p>
-                        {% endif %}
-                        <p>${{ solidario|intcomma }}</p>
-                        <p>${{ retefuente|intcomma }}</p>
-                        <p>${{ salud|intcomma}}</p>
-                        <p>${{ pension|intcomma }}</p>
-                        <p>${{ baseGravada|intcomma}}</p>
-                        {% if extra_diurna != 0 %}
-                        <p>${{ extra_diurna | intcomma }}</p>
-                        {% endif %}
-                        {% if extra_nocturna != 0 %}
-                        <p>${{ extra_nocturna | intcomma }}</p>
-                        {% endif %}
-                        {% if extra_dominical_festiva_diurna != 0 %}
-                        <p>${{ extra_dominical_festiva_diurna | intcomma }}</p>
-                        {% endif %}
-                        {% if extra_dominical_festiva_nocturna != 0 %}
-                        <p>${{ extra_dominical_festiva_nocturna | intcomma }}</p>
-                        {% endif %}
-                        {% if total_extras != 0 %}
-                        <p>${{ total_extras | intcomma }}</p>
-                        {% endif %}
-                    </div>
+        <div class="resultados bg-light p-3 rounded mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="fw-bold text-dark">
+                        De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
+                    </p>
+                </div>
+                <div class="col-md-4 text-dark">
+                    <p>Total a devengar:</p>
+                    <p>Auxilio de transporte:</p>
+                    <p>Total bono solidario:</p>
+                    <p>Retefuente:</p>
+                    <p>Total salud:</p>
+                    <p>Total pension:</p>
+                    <p>Total base gravada:</p>
+                    <p>Hora extra diurna:</p>
+                    <p>Hora extra nocturna:</p>
+                    <p>Hora extra dominical/festiva diurna:</p>
+                    <p>Hora extra dominical/festiva nocturna:</p>
+                    <p>Total horas extras:</p>
+                </div>
+                <div class="col-md-8 fw-bold text-warning-emphasis">
+                    <p>${{ resultado | intcomma }}</p>
+                    {% if transporte != 0 %}
+                    <p>${{ transporte |intcomma }}</p>
+                    {% endif %}
+                    <p>${{ solidario|intcomma }}</p>
+                    <p>${{ retefuente|intcomma }}</p>
+                    <p>${{ salud|intcomma}}</p>
+                    <p>${{ pension|intcomma }}</p>
+                    <p>${{ baseGravada|intcomma}}</p>
+                    {% if extra_diurna != 0 %}
+                    <p>${{ extra_diurna | intcomma }}</p>
+                    {% endif %}
+                    {% if extra_nocturna != 0 %}
+                    <p>${{ extra_nocturna | intcomma }}</p>
+                    {% endif %}
+                    {% if extra_dominical_festiva_diurna != 0 %}
+                    <p>${{ extra_dominical_festiva_diurna | intcomma }}</p>
+                    {% endif %}
+                    {% if extra_dominical_festiva_nocturna != 0 %}
+                    <p>${{ extra_dominical_festiva_nocturna | intcomma }}</p>
+                    {% endif %}
+                    {% if total_extras != 0 %}
+                    <p>${{ total_extras | intcomma }}</p>
+                    {% endif %}
                 </div>
             </div>
+        </div>
         {% endif %}
     </div>
 </section>
