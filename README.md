@@ -1,0 +1,1 @@
+El archivo "db.zip" contiene los archivos de base de datos necesarios para que el programa funcione. Al descomprimirlo en la raíz, te aseguras de que el programa pueda acceder a estos archivos sin problemas.
