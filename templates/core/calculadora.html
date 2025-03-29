@@ -53,36 +53,37 @@
         </form>
         {% if resultado != null %}
         <div class="resultados bg-light p-3 rounded mt-5 mb-5">
+           
             <div class="row">
                 <div class="col-md-12">
                     <p class="fw-bold text-dark">
                         De acuerdo a tus ingresos tu colilla de pago debería contener la siguiente información:
                     </p>
                 </div>
-                <div class="col-md-4 text-dark">
-                    <p>Total a devengar:</p>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="text-dark"><b>Devengado:</b></p>
+                    </div>
+                    <div class="col-md-4 fw-bold text-warning-emphasis">
+                    </div>
+                    <div class="col-md-2">
+                        <p class="text-dark"><b>Deducciones:</b></p>
+                    </div>
+                    <div class="col-md-4 fw-bold text-danger">
+                    </div>
+                </div>
+                <div class="col-md-2 text-dark">
                     <p>Auxilio de transporte:</p>
-                    <p>Total bono solidario:</p>
-                    <p>Retefuente:</p>
-                    <p>Total salud:</p>
-                    <p>Total pension:</p>
-                    <p>Total base gravada:</p>
                     <p>Hora extra diurna:</p>
                     <p>Hora extra nocturna:</p>
                     <p>Hora extra dominical/festiva diurna:</p>
                     <p>Hora extra dominical/festiva nocturna:</p>
                     <p>Total horas extras:</p>
                 </div>
-                <div class="col-md-8 fw-bold text-warning-emphasis">
-                    <p>${{ resultado | intcomma }}</p>
+                <div class="col-md-4 fw-bold text-warning-emphasis">
                     {% if transporte != 0 %}
                     <p>${{ transporte |intcomma }}</p>
                     {% endif %}
-                    <p>${{ solidario|intcomma }}</p>
-                    <p>${{ retefuente|intcomma }}</p>
-                    <p>${{ salud|intcomma}}</p>
-                    <p>${{ pension|intcomma }}</p>
-                    <p>${{ baseGravada|intcomma}}</p>
                     {% if extra_diurna != 0 %}
                     <p>${{ extra_diurna | intcomma }}</p>
                     {% endif %}
@@ -99,6 +100,26 @@
                     <p>${{ total_extras | intcomma }}</p>
                     {% endif %}
                 </div>
+                <div class="col-md-2 text-dark">
+                    <p>Total bono solidario:</p>
+                    <p>Retefuente:</p>
+                    <p>Total salud:</p>
+                    <p>Total pension:</p>
+                    <p>Total base gravada:</p>
+                </div>
+                <div class="col-md-4 fw-bold text-danger">
+                    <p>${{ solidario|intcomma }}</p>
+                    <p>${{ retefuente|intcomma }}</p>
+                    <p>${{ salud|intcomma}}</p>
+                    <p>${{ pension|intcomma }}</p>
+                    <p>${{ baseGravada|intcomma}}</p>
+                </div>
+                    <div class="col-md-2 text-dark">
+                        <p>Total a devengar:</p>
+                    </div>
+                    <div class="col-md-4 fw-bold text-success">
+                        <p>${{ resultado | intcomma }}</p>
+                    </div>
             </div>
         </div>
         {% endif %}
